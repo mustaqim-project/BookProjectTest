@@ -127,3 +127,15 @@ project-root/
 └── tests/
 ```
 
+
+## Panduan Penggunaan
+Login Sebagai Admin:
+
+Setelah menjalankan proyek, pada tampilan awal di pojok kanan atas terdapat tombol "Login".
+Jika belum memiliki akun, klik "Don't have account?" pada halaman login untuk membuat akun.
+Pastikan akun yang dibuat memiliki akses sebagai admin.
+Akses Halaman Admin:
+
+Setelah membuat akun admin, login ke halaman admin menggunakan kredensial yang telah dibuat.
+
+
