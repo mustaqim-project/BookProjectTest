@@ -49,7 +49,6 @@
                                         <label for="password">{{ __('Password') }}</label>
                                         @if (Route::has('password.request'))
                                             <a href="{{ route('password.request') }}" class="float-right">
-                                                {{-- <small>{{ __('Forgot Your Password?') }}</small> --}}
                                             </a>
                                         @endif
                                     </div>
@@ -74,9 +73,9 @@
                                             {{ old('remember') ? 'checked' : '' }}>
                                         <label for="remember">{{ __('Remember Me') }}</label>
                                     </div>
-                                    {{-- <div class="float-right">
+                                    <div class="float-right">
                                         <a href="{{ route('register') }}">{{ __('Don\'t have an account?') }}</a>
-                                    </div> --}}
+                                    </div>
                                 </div>
 
                                 <div class="clearfix">
