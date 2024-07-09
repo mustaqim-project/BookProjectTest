@@ -19,7 +19,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="admin/image/tokobuku.png" alt="logo" srcset="" height="50"/>
+        <img src="{{ asset('admin/image/tokobuku.png') }}" alt="logo" height="50"/>
         <a class="navbar-brand" href="#">Buku</a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
