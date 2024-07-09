@@ -56,6 +56,12 @@
    php artisan migrate
    ```
 
+    **Jalankan migrasi seeder database**
+
+   ```bash
+   php artisan db:seed
+   ```
+   
 7. **Install dependencies npm**
 
    ```bash
