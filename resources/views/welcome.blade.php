@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,47 +10,57 @@
         .book-card {
             cursor: pointer;
         }
+
         .book-card:hover {
             background-color: #f8f9fa;
         }
+
         .modal-body img {
             max-width: 100%;
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="{{ asset('admin/image/tokobuku.png') }}" alt="logo" height="50"/>
-        <a class="navbar-brand" href="#">Buku</a>
+        <a class="navbar-brand" href="/">
+        <img src="{{ asset('admin/image/tokobuku.png') }}" alt="logo" height="50" />
+        Buku</a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="kategoriDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="kategoriDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Kategori
                     </a>
                     <div class="dropdown-menu" aria-labelledby="kategoriDropdown">
                         @foreach ($kategories as $kategori)
-                            <a class="dropdown-item" href="{{ url('/dash/kategori/' . $kategori->id) }}">{{ $kategori->nama }}</a>
+                            <a class="dropdown-item"
+                                href="{{ url('/dash/kategori/' . $kategori->id) }}">{{ $kategori->nama }}</a>
                         @endforeach
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="penulisDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="penulisDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Penulis
                     </a>
                     <div class="dropdown-menu" aria-labelledby="penulisDropdown">
                         @foreach ($penulis as $author)
-                            <a class="dropdown-item" href="{{ url('/dash/penulis/' . $author->id) }}">{{ $author->nama }}</a>
+                            <a class="dropdown-item"
+                                href="{{ url('/dash/penulis/' . $author->id) }}">{{ $author->nama }}</a>
                         @endforeach
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="penerbitDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="penerbitDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Penerbit
                     </a>
                     <div class="dropdown-menu" aria-labelledby="penerbitDropdown">
                         @foreach ($penerbits as $publisher)
-                            <a class="dropdown-item" href="{{ url('/dash/penerbit/' . $publisher->id) }}">{{ $publisher->nama }}</a>
+                            <a class="dropdown-item"
+                                href="{{ url('/dash/penerbit/' . $publisher->id) }}">{{ $publisher->nama }}</a>
                         @endforeach
                     </div>
                 </li>
@@ -66,13 +77,15 @@
                     <li class="nav-item dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle">
                             <div class="avatar mr-1">
-                                <img src="admin/assets/images/avatar/avatar-s-1.png" alt="User Avatar" class="rounded-circle img-thumbnail" style="width: 50px; height: 50px;">
+                                <img src="admin/assets/images/avatar/avatar-s-1.png" alt="User Avatar"
+                                    class="rounded-circle img-thumbnail" style="width: 50px; height: 50px;">
 
                                 Hi, {{ Auth::user()->name }}
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i data-feather="log-out"></i> Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -92,17 +105,23 @@
         <div class="row">
             @foreach ($bukus as $buku)
                 <div class="col-md-4 mb-4">
-                    <div class="card book-card" data-toggle="modal" data-target="#bookModal" data-book="{{ json_encode($buku) }}">
-                        <img src="{{ asset('images/' . $buku->gambar) }}" class="card-img-top" alt="{{ $buku->judul }}">
+                    <div class="card book-card" data-toggle="modal" data-target="#bookModal"
+                        data-book="{{ json_encode($buku) }}">
+                        <img src="{{ asset('images/' . $buku->gambar) }}" class="card-img-top"
+                            alt="{{ $buku->judul }}" style=" height: 300px;">
+
                         <div class="card-body">
                             <h5 class="card-title">{{ $buku->judul }}</h5>
-                            <p class="card-text">{{ Str::limit($buku->deskripsi, 100) }}</p>
-                            <p class="card-text"><small class="text-muted">Penulis: {{ $buku->penulis->nama }}</small></p>
-                            <p class="card-text"><small class="text-muted">Penerbit: {{ $buku->penerbit->nama }}</small></p>
+                            <p class="card-text">{!! Str::limit($buku->deskripsi, 100) !!}</p>
+                            <p class="card-text"><small class="text-muted">Penulis: {{ $buku->penulis->nama }}</small>
+                            </p>
+                            <p class="card-text"><small class="text-muted">Penerbit:
+                                    {{ $buku->penerbit->nama }}</small></p>
                         </div>
                     </div>
                 </div>
             @endforeach
+
         </div>
     </div>
 
@@ -130,16 +149,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $('#bookModal').on('show.bs.modal', function (event) {
+        $('#bookModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
             var book = button.data('book');
             var modal = $(this);
             modal.find('#bookImage').attr('src', '/images/' + book.gambar);
             modal.find('#bookTitle').text(book.judul);
-            modal.find('#bookDescription').text(book.deskripsi);
+            modal.find('#bookDescription').html(book.deskripsi);
             modal.find('#bookAuthor').text(book.penulis.nama);
             modal.find('#bookPublisher').text(book.penerbit.nama);
         });
     </script>
+
 </body>
+
 </html>

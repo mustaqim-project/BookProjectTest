@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <label for="deskripsi">Deskripsi:</label>
-            <p>{{ $buku->deskripsi }}</p>
+            <p>{!! ($buku->deskripsi) !!}</p>
         </div>
         <div class="form-group">
             <label for="gambar">Gambar:</label>
@@ -34,3 +34,6 @@
         <a href="{{ route('buku.index') }}" class="btn btn-primary">Back</a>
     </div>
 @endsection
+
+
+
